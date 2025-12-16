@@ -2,93 +2,88 @@
   --teal:#00475a;
   --accent-teal:#00a6b6;
   --orange:#f46a36;
-  --white:#ffffff;
   --deep:#002e36;
-  --transition:.22s ease;
 }
 
-/* Reset */
+/* RESET */
 *{box-sizing:border-box}
 html,body{margin:0}
 body{
-  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   color:#333;
   background:#fff;
 }
 
-/* Page wrapper (desktop containment) */
+/* PAGE WRAP */
 .page-wrap{
   width:100%;
   overflow:hidden;
 }
 
-/* Container – mobile first */
+/* CONTAINER */
 .container{
   width:100%;
   padding:0 16px;
   margin:0 auto;
 }
 
-/* Buttons */
+/* BUTTONS */
 .btn{
   display:inline-block;
   padding:10px 18px;
-  font-size:.9rem;
   font-weight:700;
-  border-radius:4px;
   text-transform:uppercase;
   text-decoration:none;
-  transition:filter var(--transition);
+  border-radius:4px;
+  font-size:.9rem;
 }
 .btn-teal{background:var(--accent-teal);color:#fff}
 .btn-orange{background:var(--orange);color:#fff}
-.btn:hover{filter:brightness(.95)}
 
-/* Top bar */
+/* TOP BAR */
 .top-bar{
   background:var(--teal);
   color:#fff;
 }
-.top-bar .container{
+.top-inner{
   display:flex;
-  flex-wrap:wrap;
-  gap:12px;
   justify-content:space-between;
   align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
 .trust-text{
   font-size:.8rem;
-  font-weight:600;
   letter-spacing:.8px;
 }
 
-/* Header */
+/* HEADER */
 .main-header{
-  background:#fff;
-  padding:18px 0;
+  padding:20px 0;
 }
 .header-inner{
   display:flex;
   flex-direction:column;
-  gap:16px;
   align-items:center;
+  gap:16px;
 }
 .logo{
-  width:100%;
   max-width:180px;
-  height:auto;
+  width:100%;
 }
 .contact{text-align:center}
 .call-text{color:var(--orange);font-weight:700}
 .subtext{font-size:.8rem;color:#666}
 
-/* Hero – mobile first */
+/* HERO */
 .hero{
   position:relative;
   background:linear-gradient(to bottom,#ffffff 0%,#d9f6fb 100%);
-  padding:32px 0 220px;
+  padding:32px 0 240px;
   overflow:hidden;
 }
+
+/* BACKGROUND GLOW */
 .hero-background-circle{
   position:absolute;
   top:-80px;
@@ -103,7 +98,7 @@ body{
   filter:blur(6px);
 }
 
-/* Hero layout */
+/* HERO GRID */
 .hero-grid{
   position:relative;
   z-index:2;
@@ -114,20 +109,24 @@ body{
 }
 .hero-left h1{
   font-size:1.8rem;
-  line-height:1.1;
   color:var(--deep);
+  line-height:1.1;
 }
-.hero-left .category{
+.category{
   color:var(--accent-teal);
   font-weight:700;
   font-size:.85rem;
 }
-.hero-left .desc{
+.desc{
   font-size:1rem;
   line-height:1.45;
 }
+.hero-cta{
+  display:block;
+  width:100%;
+}
 
-/* Image */
+/* IMAGE */
 .image-circle{
   width:100%;
   max-width:320px;
@@ -136,7 +135,6 @@ body{
   border-radius:50%;
   overflow:hidden;
   border:10px solid var(--teal);
-  background:#e6f8fb;
 }
 .image-circle img{
   width:100%;
@@ -144,7 +142,7 @@ body{
   object-fit:cover;
 }
 
-/* Landscape + mascot */
+/* LANDSCAPE + BIRD */
 .landscape{
   position:absolute;
   bottom:0;
@@ -153,21 +151,14 @@ body{
 }
 .mascot{
   position:absolute;
-  bottom:-30px;
+  bottom:0;
   left:50%;
   transform:translateX(-50%);
   width:90%;
   max-width:420px;
 }
 
-/* CTA */
-.hero-cta{
-  display:block;
-  width:100%;
-  margin-top:8px;
-}
-
-/* Tablet */
+/* TABLET */
 @media (min-width:768px){
   .header-inner{
     flex-direction:row;
@@ -181,46 +172,61 @@ body{
     text-align:left;
   }
   .hero-left,.hero-right{flex:1}
-  .image-circle{max-width:420px;border-width:12px}
+  .image-circle{max-width:420px}
 }
 
-/* Desktop – LOCKED DESIGN */
+/* DESKTOP — EXACT DESIGN */
 @media (min-width:1440px){
   .page-wrap{
     max-width:1617px;
     margin:0 auto;
   }
+
   .container{
     max-width:1139px;
     padding:0;
   }
+
   .logo{
     width:372.63px;
     height:217px;
   }
+
   .hero{
-    height:426px;
-    padding:0;
+    min-height:426px;
+    padding-bottom:260px;
     border-radius:6px;
   }
+
   .hero-grid{
     display:grid;
     grid-template-columns:1fr 688px;
-    height:100%;
     padding:40px 60px 0;
+    align-content:flex-start;
   }
+
   .image-circle{
     width:688px;
     height:688px;
     max-width:none;
     border-width:16px;
   }
+
   .mascot{
     width:1139px;
     max-width:none;
-    bottom:-60px;
+    bottom:0;
   }
+
   .landscape{
     width:1139px;
+  }
+
+  .hero-background-circle{
+    width:40%;
+    height:640px;
+    left:6%;
+    top:-120px;
+    transform:none;
   }
 }
